@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4e5sMhc2QQ40iKJbLIde/RYHwX6vxH98QduJSnt0Mdo4SUK9csj9VoW2JFpX8EpUx2xNHAGGhclKfjuiUhgVbg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\Code Acadamy\\MainExereciseProject\\MainExereciseProject\\MainExereciseProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\spectre.console\\0.46.0\\spectre.console.0.46.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
+  ],
+  "logs": []
+}

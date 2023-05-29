@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\bin\Debug\net7.0\MainProgram.exe
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\bin\Debug\net7.0\MainProgram.deps.json
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\bin\Debug\net7.0\MainProgram.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\bin\Debug\net7.0\MainProgram.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\bin\Debug\net7.0\MainProgram.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\refint\MainProgram.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\MainProgram.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainProgram\MainProgram\obj\Debug\net7.0\ref\MainProgram.dll

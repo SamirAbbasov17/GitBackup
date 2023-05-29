@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\bin\Debug\net7.0\Enum_8.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\bin\Debug\net7.0\Enum_8.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\bin\Debug\net7.0\Enum_8.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\bin\Debug\net7.0\Enum_8.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\bin\Debug\net7.0\Enum_8.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\refint\Enum_8.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\Enum_8.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Enum_8\obj\Debug\net7.0\ref\Enum_8.dll

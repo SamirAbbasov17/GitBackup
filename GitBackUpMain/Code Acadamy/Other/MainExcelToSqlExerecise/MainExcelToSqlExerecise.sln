@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainExcelToSqlExerecise", "MainExcelToSqlExerecise\MainExcelToSqlExerecise.csproj", "{B8B57B33-ACC2-4C51-802E-5DA967A9982E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8B57B33-ACC2-4C51-802E-5DA967A9982E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B57B33-ACC2-4C51-802E-5DA967A9982E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B57B33-ACC2-4C51-802E-5DA967A9982E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B57B33-ACC2-4C51-802E-5DA967A9982E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EF2826E-7041-4507-AFE1-227118EE0966}
+	EndGlobalSection
+EndGlobal

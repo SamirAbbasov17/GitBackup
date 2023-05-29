@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\CodeInLessonExeProj.exe
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\CodeInLessonExeProj.deps.json
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\CodeInLessonExeProj.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\CodeInLessonExeProj.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\CodeInLessonExeProj.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\refint\CodeInLessonExeProj.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\ref\CodeInLessonExeProj.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\bin\Debug\net7.0\Spectre.Console.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\CodeInLessonExeProj\CodeInLessonExeProj\obj\Debug\net7.0\CodeInLessonExeProj.csproj.CopyComplete

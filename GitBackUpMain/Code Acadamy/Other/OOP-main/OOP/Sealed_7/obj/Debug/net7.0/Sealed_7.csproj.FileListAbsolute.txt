@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\bin\Debug\net7.0\Sealed_7.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\bin\Debug\net7.0\Sealed_7.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\bin\Debug\net7.0\Sealed_7.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\bin\Debug\net7.0\Sealed_7.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\bin\Debug\net7.0\Sealed_7.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\refint\Sealed_7.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\Sealed_7.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Sealed_7\obj\Debug\net7.0\ref\Sealed_7.dll

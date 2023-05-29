@@ -1,0 +1,1581 @@
+﻿-- NOT: Sorgularımızı yazarken küçük-büyük harfe dikkat etmemize gerek yok. (Eğer başlangıçta Server kurulurken bu ayar seçilmiş ise)
+
+-- DML -> Data Manipulation Language
+
+use Northwind
+-- Northwind veritabanı üzerinde sorgulamalar yapacağımız için ya bu şekilde ya da sol üst köşedeki ComboBox'ı kullanarak veritabanımızı seçeriz.
+
+-- TABLOLARI SORGULAMAK
+
+-- Select <sütun_adları> From <tablo_adı> -- (sütun adları arasında virgül var)
+-- Employees tablosundaki tüm kayıtları listeleyelim
+SELECT * FROM Employees
+
+-- Employees tablosundan, çalışanlara ait ad, soyad, görev ve doğum tarihi bilgilerini listeleyelim
+SELECT FirstName, LastName, Title, BirthDate FROM Employees
+-- Seçmek istediğimiz sütunları aralarına virgül koyarak belirtiyoruz. 
+
+-- Sütun isimlerinin Intellisense menüsü ile gelmesi için Select ifadesinden sonra From <tablo_adı> yazıp, daha sonra Select ile From arasına sütun isimlerini yazarsak, sütun isimleri bize listelenir.
+
+-- Employees tablosunun sütunlarını sürükle bırak yardımı ile de ekleyebiliriz.
+SELECT [EmployeeID], [LastName], [FirstName], [Title], [TitleOfCourtesy], [BirthDate], [HireDate], [Address], [City], [Region], [PostalCode], [Country], [HomePhone], [Extension], [Photo], [Notes]
+FROM Employees
+SELECT [FirstName], [LastName], [HireDate], [HomePhone], [Title]
+FROM Employees
+
+-- Employees tablosunun altındaki Columns klasörünü sürükleyip bırakırsak bütün sütunlar listelenir.
+
+-- SÜTUNLARIN ISIMLENDIRILMESI
+
+-- 1. Yol 
+SELECT TitleOfCourtesy AS Unvan, FirstName AS Adi, LastName AS Soyadi, Title AS Gorev
+FROM Employees
+
+-- 2. Yol 
+SELECT TitleOfCourtesy Unvan, FirstName Adi, LastName Soyadi, Title Gorev, BirthDate 'Dogum Tarihi'
+FROM Employees
+
+-- 3. Yol
+SELECT Unvan=TitleOfCourtesy, Adi=FirstName, Soyadi=LastName, Gorev=Title, 'Doğum Tarihi'=BirthDate, [İşe Giriş Tarihi]=HireDate
+FROM Employees
+
+-- TEKIL KAYITLARI LISTELEMEK
+
+SELECT City
+FROM Employees; -- Aynı şehirler listelenir.
+
+
+SELECT DISTINCT
+       City
+FROM Employees; -- Farklı olan şehirlerin (tekil değerler) listelenmesini sağlar.
+
+
+SELECT  DISTINCT  City , FirstName FROM Employees
+ -- Üstteki ile aynı sonucu getirir, sebebi ise aynı ad ve şehir değerine sahip kayıtların olmamasıdır.Eğer FirstName = Steven, City = London olan başka bir kayıt daha girilirse tabloya, bu kayıtlardan sadece biri listelenecektir.
+
+
+-- METİNLERİ BİRLEŞTİRMEK
+ 
+SELECT CAST(EmployeeID AS nvarchar(50))+' '+TitleOfCourtesy+' '+FirstName+' '+LastName AS Personel
+FROM Employees
+
+SELECT CONCAT(EmployeeID, ' ', TitleOfCourtesy, ' ', FirstName, ' ', LastName) AS Personel
+FROM Employees
+
+
+
+
+
+
+
+
+
+
+
+-- SORGULARI FiLTRELEMEK
+-- Yazdiğimiz sorgulari belirli koşullara göre filtreleyebilmek için WHERE cümleciğini kullaniriz. 
+-- Ünvani Mr. olanlarin listelenmesi
+
+SELECT TitleOfCourtesy, FirstName, LastName
+FROM Employees
+WHERE TitleOfCourtesy='Mr.'
+
+-- EmployeeID değeri 5'ten büyük olanların listelenmesi
+SELECT EmployeeID, TitleOfCourtesy, FirstName, LastName
+FROM Employees
+WHERE EmployeeID>5
+
+-- 1960 yilinda doğanlarin listelenmesi
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate)=1960
+
+-- 1950 ile 1961 yillari arasinda doğanlar ( between ) kullanmayınız :) görmedik henüz!!!
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate)>1950 AND YEAR(BirthDate)<1961
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate) BETWEEN 1950 AND 1961
+
+-- ingiltere'de oturan bayanlarin adi, soyadi, mesleği, ünvani, ülkesi ve doğum tarihini listeleyiniz (Employees)
+SELECT Country, TitleOfCourtesy
+FROM Employees
+WHERE(TitleOfCourtesy='Ms.' OR TitleOfCourtesy='Mrs.')AND Country='UK'
+
+-- Ünvani Mr. olanlar veya yaşi 60'tan büyük olanlarin listelenmesi
+SELECT TitleOfCourtesy, FirstName, LastName, BirthDate, (YEAR(GETDATE())-YEAR(BirthDate)) Age
+FROM Employees
+WHERE TitleOfCourtesy='Mr.' or YEAR(GETDATE())-YEAR(BirthDate)>=60
+
+-- GETDATE() fonksiyonu güncel tarih bilgisini verir, YEAR() fonksiyonu ile birlikte o tarihe ait olan yil bilgisini öğreniyoruz. Where ifadesi ile  birlikte kendi isimlendirdiğimiz sütunlari kullanamayiz. Örneğin yukarida Yaş olarak isimlendirdiğimiz sütun ismini Where ifadesi ile birlikte kullanamayiz.
+
+-- NULL VERiLERi SORGULAMAK
+
+-- Bölgesi belirtilmemiş çalışanların listelenmesi
+SELECT Region, * FROM Employees WHERE Region IS NULL
+
+-- Bölgesi belirtilen personllerin listelenmesi
+SELECT Region, * FROM Employees WHERE Region IS NOT NULL
+
+-- NOT: NULL değerler sorgulanirken = veya <> gibi operatörler kullanilmaz. Bunun yerine IS NULL veya IS NOT NULL ifadeleri kullanilir.
+
+-- SIRALAMA İŞLEMLERİ
+SELECT * FROM Employees ORDER BY LastName ASC
+-- Ascending -> A'dan Z'ye - 0'dan 9'a sıralama yapar ( fakirden -> Zengine )
+SELECT * FROM Employees ORDER BY BirthDate DESC
+-- Descending Z'den A'ya - 9'dan 0'a ( zenginden fakire ) sıralama yapar
+-- Descending (azalan sirada)
+-- ASC ifadesi sayisal sütunlarda küçükten büyüğe, metinsel sütunlarda A'dan Z'ye doğru siralama işlemi yaparken, DESC ifadesi tam tersi şekilde siralama yapar.
+
+
+SELECT EmployeeID, FirstName, LastName INTO Calisanlar FROM Employees
+
+UPDATE Calisanlar SET FirstName='Michael' WHERE EmployeeID>6
+
+SELECT EmployeeID, FirstName, LastName
+FROM Calisanlar
+ORDER BY FirstName, LastName DESC
+
+SELECT FirstName, LastName INTO EmployeesTest FROM Employees
+
+SELECT EmployeeID, TitleOfCourtesy,FirstName,LastName, BirthDate, HireDate FROM Employees
+ORDER BY 2, 6 DESC
+
+
+-- Çalişanlari ünvanlarina göre , ünvanlari ayniysa yaşlarina göre büyükten küçüğe siralayiniz.
+-- NOT -> Personel kore doğumlu ise, yaşına -1 olarak hesaplayınız :)
+
+SELECT TitleOfCourtesy, FirstName, LastName, YEAR(GETDATE()) - YEAR(BirthDate) AS Age from Employees
+ORDER BY TitleOfCourtesy, Age DESC
+
+
+
+-- BETWEEN - AND KULLANIMI
+-- Aralık bildirmek için kullanılır
+
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate)>1950 AND YEAR(BirthDate)<1961
+
+
+
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate) BETWEEN 1950 AND 1961
+
+
+-- Between kullanımda, verilen değerler sorguya dahil'dir
+
+
+-- between ve  kullanmadan 2 örnek olarak sorguyu yazınız :)
+
+-- Alfabetik olarak Janet ile Robert arasinda olanlarin listelenmesi
+SELECT FirstName, LastName FROM Employees
+--WHERE FirstName >= 'Janet' AND FirstName <= 'Robert'
+WHERE FirstName BETWEEN 'Janet' AND 'Robert'
+ORDER BY FirstName
+
+-- IN KULLANIMI
+-- Ünvani Mr. veya Dr. olanlarin listelenmesi
+
+SELECT * FROM Employees
+-- WHERE TitleOfCourtesy = 'MR.' OR TitleOfCourtesy = 'Dr.'
+WHERE TitleOfCourtesy IN ('MR.' ,'Dr.')
+
+-- 1950, 1955 ve 1960 yillarinda doğanlarin listelenmesi
+SELECT FirstName, LastName, BirthDate, YEAR(BirthDate) AS [Year]
+FROM Employees
+WHERE YEAR(BirthDate) in (1950,1955,1960)
+
+
+-- TOP Kullanimi
+SELECT TOP 3 * FROM Employees --  ilk 3 kayıt
+
+select TOP 5 EmployeeID, FirstName,LastName, TitleOfCourtesy from Employees
+order by FirstName
+
+-- TOP ifadesi bir sorguda en son çalişan kisimdir. Yani öncelikle sorgumuz çaliştirilir ve oluşacak olan sonuç kümesinin (result set) ilk 5 kaydi alinir.
+ 
+
+-- Çalişanlari yaşlarina göre azalan sirada siraladiktan sonra, oluşacak sonuç kümesinin %25'lik kismini listeleyelim.
+
+SELECT TOP 25 PERCENT FirstName, LastName, YEAR(GETDATE()) - YEAR(BirthDate) AS Age FROM Employees
+ORDER BY Age
+
+
+-- LIKE KULLANIMI
+-- Adı Michael olan personelin listelenmesi
+
+-- 1. Yol (equal)
+SELECT FirstName, LastName FROM Employees WHERE FirstName = 'Michael'
+
+-- 2. Yol
+
+SELECT FirstName, LastName FROM Employees WHERE FirstName LIKE 'Michael'
+
+
+-- Adının ilk harfi A ile başlayanlar
+
+-- 1. Yol
+SELECT FirstName, LastName FROM Employees  WHERE LEFT(FirstName,1) = 'A'
+
+-- 2. Yol
+SELECT FirstName, LastName FROM Employees  WHERE  FirstName  LIKE 'A%'
+
+
+
+-- Soyadının son harfi N olanlar
+
+-- 1. Yol
+SELECT FirstName, LastName FROM Employees  WHERE RIGHT(LastName,1) = 'N'
+
+-- 2. Yol
+SELECT FirstName, LastName FROM Employees  WHERE  LastName  LIKE '%N'
+
+
+-- Adının içerisinde E harfi geçenler
+SELECT FirstName, LastName FROM Employees  WHERE FirstName  LIKE '%E%'
+
+-- Adının ilk harfi A veya L olanlar
+
+SELECT FirstName, LastName FROM Employees  WHERE LEFT(FirstName, 1) = 'A' OR LEFT(FirstName, 1) = 'L'
+ORDER BY 1
+
+SELECT FirstName, LastName FROM Employees  WHERE FIRSTNAME LIKE 'A%' OR FIRSTNAME LIKE  'L%'
+ORDER BY 1
+
+SELECT FirstName, LastName FROM Employees  WHERE FIRSTNAME LIKE '[AL]%'
+ORDER BY 1
+
+
+-- Adının içerisinde R veya T harfi bulunanlar
+SELECT FirstName, LastName FROM Employees  WHERE FIRSTNAME LIKE '%[RT]%'
+ORDER BY 1
+
+-- Adının ilk harfi alfabetik olarak J ile R aralığında olanlar
+
+SELECT FirstName, LastName FROM Employees
+--WHERE LEFT(FirstName, 1) >= 'J' AND LEFT(FirstName, 1) <= 'R'
+WHERE LEFT(FirstName, 1) BETWEEN 'J' AND 'R'
+ORDER BY FirstName
+
+SELECT FirstName, LastName FROM Employees  WHERE FIRSTNAME LIKE '[J-R]%'
+ORDER BY 1
+
+
+-- Adı şu şekilde olanlar: tAmEr, yAsEmin, tAnEr (A ile E arasında tek bir karakter olanlar)
+SELECT FirstName, LastName FROM Employees  WHERE FIRSTNAME LIKE '%A_E%'
+ORDER BY 1
+
+-- Adının ilk harfi M olmayanlar
+SELECT FirstName, LastName FROM Employees  WHERE FirstName NOT LIKE 'M%'
+SELECT FirstName, LastName FROM Employees  WHERE FirstName LIKE '[^M]%'
+
+
+-- 1) Adının ilk iki harfi LA, LN, AA veya AN olanlar
+-- 2) Adının içerisinde _ geçen isimleri listeleyiniz ( içeride kayıt yok diye yazmamazlık yapmayınız, bi zahmet 2 satır datayı güncelleyin :))
+-- 3) Customers tablosundan CustomerID'sinin 2. harfi A, 4. harfi T olanların %10'luk kısmını getiren sorguyu yazınız.
+-- 4) Adının 2. harfi A veya T olmayanlar
+-- 5) Adının ilk harfi A ile I aralığında bulunmayanlar
+-- 6) Adı T ile bitmeyenler
+
+
+-- Function Odev :) -> Yaş hesaplama :) verdiğiniz tarihe göre, kişinin parametrede gönderdiğiniz yaşı doldurup doldurmadığı geriye dönünüz
+
+-- 25.09.1988 , 35 -> Yıl ve ay olarak doldurmuştur, gün olarak eksiktir. | Yıl olarak doldurmuştur, ay ve gün olarak eksik, Yıl, ay ve gün olarak eksik
+
+-- https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=net-7.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- TARiH FONKSiYONLARI
+-- DATEPART() Kullanımı: Bir tarih bilgisinden istediğimiz kısmı elde etmemizi sağlar.
+
+SELECT FirstName, LastName, DATEPART(YYYY,BirthDate) AS [Year] FROM Employees
+SELECT FirstName, LastName, DATEPART(ww,BirthDate) AS [Week] FROM Employees
+SELECT FirstName, LastName, DATEPART(dw,BirthDate) AS [Day of Week] FROM Employees
+SELECT FirstName, LastName, DATEPART(isowk,BirthDate) AS [Day of Week] FROM Employees
+/*
+
+year,        yyyy,    yy     = Year
+quarter,     qq,      q      = Quarter
+month,       mm,      m      = month
+dayofyear,   dy,      y      = Day of the year
+day,         dd,      d      = Day of the month
+week,        ww,      wk     = Week
+weekday,     dw,      w      = Weekday
+hour,        hh              = hour
+minute,      mi,      n      = Minute
+second,      ss,      s      = Second
+millisecond, ms              = Millisecond
+microsecond, mcs             = Microsecond
+nanosecond,  ns              = Nanosecond
+tzoffset,    tz              = Timezone offset
+iso_week,    isowk,   isoww  = ISO week
+
+*/
+
+
+-- C# iki tarih arasındaki farkı veren metot hansı -> TimeSpan
+-- Sql                                             -> DateIff
+
+
+SELECT 
+	FirstName + ' '+ LastName AS Personel,
+	DATEDIFF(YEAR, BirthDate, GETDATE()) AS [Yaş],
+	DATEDIFF(DAY, HireDate, GETDATE()) AS [Ödenen Pirim Sayısı] 
+FROM Employees
+
+
+-- Kaç yıl, ay, gün, saat, dakika  yaşıyorsunuz bulun :)
+
+
+DECLARE @MyBirthDate nvarchar(100) = '1982-09-25 00:00:00.000'
+
+SELECT DATEDIFF(YY, @MyBirthDate,  GETDATE()) AS [Yıl],
+       DATEDIFF(MM, @MyBirthDate,  GETDATE()) AS [Ay],
+       DATEDIFF(D,  @MyBirthDate , GETDATE()) AS [Gün],
+       DATEDIFF(HH, @MyBirthDate , GETDATE()) AS [Saat],
+       DATEDIFF(MI, @MyBirthDate,  GETDATE()) AS [Dakika]
+
+
+
+SELECT 10 + 90 + 50 + 500 + 5000
+
+SELECT 'Bu alan içerisinde mesaj görünecek'
+PRINT('Console.WriteLine niyetine PRINT metodunu kullanınız :) ')
+
+-- STRING Fonksiyonlar
+SELECT ASCII ('A') AS [ASCII Kodu]
+SELECT CHAR(65) AS [Karakter]
+
+SELECT CHARINDEX('@', 'murat.vuranok@hotmail.com') AS [Index No]
+
+
+SELECT LEFT('murat',1) AS [Soldan, sağa 1 karakter]
+SELECT RIGHT('murat', 1)  [Sağdan, sola 1 karakter]
+
+
+SELECT LEN('                    code academy                    ') AS [Toplam Karakter Sayısı] -- 32 -- NOT: Len sağdaki boşluk değerini sorguya dahil etmiyor (bil'e mail at)
+
+SELECT LTRIM('                    code academy                    ') AS[Soldaki Boşlukları Siler]
+SELECT RTRIM('                    code academy                    ') AS[Sağdaki Boşlukları Siler]
+
+SELECT RTRIM(LTRIM('                    code academy                    ')) AS[Sağdaki ve Soldaki Boşlukları Siler]
+SELECT TRIM('                    code academy                    ')         AS[Sağdaki ve Soldaki Boşlukları Siler]
+
+
+SELECT REPLACE('murat.vuranok@code.edu.az','az','com')       AS [Metinsel Değişiklik]
+SELECT SUBSTRING('Code Academy Baku Yazılım Dersleri', 6, 7) AS [Alt Metinler Oluşturur]  -- -> Academy
+
+SELECT REVERSE('murat') AS [Tersine Çevir]
+SELECT 'Murat'+SPACE(50)+'Vuranok' AS[Boşluk Ekle]
+SELECT REPLICATE('Seni Çok Seviyorum' , 1000) AS [Seni 2. Parametrede Gönderdiğim Kadar Seviyorum]
+
+SELECT UPPER('murat') AS [Büyük Harf]
+SELECT LOWER('murat') AS [Küçük Harf]
+
+DECLARE 
+@data      NVARCHAR(100) = 'ali.vuranok@code.edu.az',
+@mail      NVARCHAR(100),
+@firstName NVARCHAR(100),
+@lastName  NVARCHAR(100),
+@company   NVARCHAR(100),
+@extention NVARCHAR(100)
+
+SELECT @mail = @data,
+@firstName   = LEFT(@data, CHARINDEX('.', @data) -1),
+@data        = SUBSTRING(@data, CHARINDEX('.', @data)  + 1, LEN(@data)),
+@lastName    = LEFT(@data ,CHARINDEX('@', @data) -1),
+@data        = SUBSTRING(@data, CHARINDEX('@', @data)  + 1, LEN(@data)),
+@company     = LEFT(@data, CHARINDEX('.', @data)),
+@data        = SUBSTRING(@data, CHARINDEX('.', @data)  + 1, LEN(@data)),
+@company     += LEFT(@data, CHARINDEX('.', @data) -1) ,
+@extention   = SUBSTRING(@data , CHARINDEX('.', @data), LEN(@data))
+ 
+
+PRINT('
+	Adı       : '+ UPPER(LEFT(@firstName,1)) + LOWER(SUBSTRING(@firstName, 2, LEN(@firstName))) +'
+	Soyadı    : '+ UPPER(LEFT(@lastName,1)) + LOWER(SUBSTRING(@lastName, 2, LEN(@lastName))) +'
+	Şirket    : '+ @company +'
+    Mail      : '+ @mail +'
+    Extention : '+ TRIM('.' FROM @extention))
+
+
+/*
+
+	Adı       : Murat
+	Soyadı    : Vuranok
+	Mail      : murat.vuranok@code.edu.az
+	Company   : code.edu
+	Extention : az
+
+*/
+
+
+-- split function
+SELECT VALUE AS ResultSonucu FROM STRING_SPLIT('ali.vuranok@code.edu.az','.')
+ 
+
+
+-- Aggregate Fonksiyonlar (Toplam Fonksiyonlari, Gruplamali Fonksiyonlar)
+-- COUNT(Sütun adi | *): Bir tablodaki kayit sayisini öğrenmek için kullanilir.
+
+-- NOT : NULL alanlar, sorguya dahil edilmez!!!!!
+
+SELECT COUNT(EmployeeID) AS [Toplam Personel Sayısı] FROM Employees  -- 9
+SELECT COUNT(Region) AS [Bölgesi Belirtilen Toplam Personel Sayısı] FROM Employees  -- 5
+-- Region sütunundaki kayit sayisi (Region sütunu null geçilebileceği için bir tablodaki kayit sayisini bu sütundan yola çikarak öğrenmek yanliş sonuçlar oluşturabilir. Çünkü aggregate fonksiyonlari NULL değer içeren kayitlari dikkate almaz. Bu nedenle kayit sayisini öğrenebilmek için ya * karakterini ya da NULL değer geçilemeyen sütunlardan birinin adini kullanmamiz gerekir.
+
+
+
+-- SUM(Sütun adi): Bir sütundaki değerlerin toplamini verir.
+
+SELECT SUM(EmployeeID) FROM Employees
+
+-- Çalişanlarin yaşlarinin toplamini bulunuz.
+SELECT SUM(YEAR(GETDATE())- YEAR(BirthDate)) Toplam from Employees
+SELECT SUM(DATEDIFF(YY, BirthDate, GETDATE())) Toplam from Employees
+SELECT SUM(FirstName) FROM Employees  -- Sadece sayısal değerler :)
+
+-- AVG(Sütun adi): Bir sütundaki değerlerin ortalamasini verir.
+SELECT AVG(EmployeeID) FROM Employees
+
+-- Çalişanlarin yaşlarinin ortalamasi
+
+SELECT AVG(YEAR(GETDATE())- YEAR(BirthDate)) Toplam from Employees
+SELECT AVG(DATEDIFF(YY, BirthDate, GETDATE())) Toplam from Employees
+SELECT AVG(FirstName) FROM Employees -- Sadece sayısal değerler :)
+
+
+
+-- MAX(Sütun adi): Bir sütundaki en büyük değeri verir. ( NOT: Dondurma değildir )
+-- MIN(Sütun adi): Bir sütundaki en küçük değeri verir.
+
+SELECT MAX(EmployeeID)[Maximum Değer], MIN(EmployeeID) [Minimum Değer] FROM Employees
+SELECT MAX(FirstName)[Maximum Değer], MIN(FirstName) [Minimum Değer] FROM Employees
+
+-- Sütunun sayisal sütun olmasina gerek yok, alfabetik olarak en küçük değeri de verir.
+
+SELECT 
+	EmployeeID, 
+	FirstName, 
+	LastName , 
+	Country,
+	IIF(Country = 'USA' , 'Amerike Birleşik Devletleri', IIF(Country = 'UK', 'İngiltere Birleşik Kırallığı', Country)) AS Ulke
+FROM Employees
+
+
+
+
+
+SELECT 
+	EmployeeID, 
+	FirstName, 
+	LastName , 
+	Country,
+	CASE (Country)
+	WHEN 'UK'  THEN 'İngiltere Birleşik Kırallığı'
+	WHEN 'USA' THEN 'Amerike Birleşik Devletleri'
+	END AS 'Ülke'
+FROM Employees
+
+
+-- EmployeeID değeri 5'ten büyükse -> 5'ten büyüktür
+-- EmployeeID değeri 5'ten küçükse -> 5'ten küçük
+-- EmployeeID değeri 5'e eşitse    -> 5'e eşittir
+
+
+SELECT 
+	EmployeeID, 
+	FirstName, 
+	LastName, 
+	CASE 
+	WHEN EmployeeID > 5 THEN '5''ten büyüktür'
+	WHEN EmployeeID < 5 THEN '5''ten küçük'
+	ELSE '5''e eşittir'
+	END AS Result
+FROM Employees
+ 
+
+
+
+ -- GROUP BY Kullanımı
+
+-- Çalışanların ülkelerine göre gruplanması
+-- https://cdn.create.vista.com/api/media/medium/184353266/stock-photo-white-brown-eggs-laying-egg?token=
+
+SELECT Country, COUNT(Region)FROM Employees GROUP BY Country -- Aggregate fonksiyonlarda, boş geçilebilen (null) olan alanlar sorguya dahil edilmez.
+SELECT Country, COUNT(*)FROM Employees GROUP BY Country
+
+-- Çalışanların yapmış olduğu sipariş adeti
+SELECT EmployeeID, COUNT(*) AS Adet
+FROM Orders
+GROUP BY EmployeeID
+ORDER BY 2
+
+-- Employees Tablosundan; FirstName alanına göre, isimleri Asc olarak sıraladıktan sonra, sonuç kümesinin ilk beş kaydını ülkelerine göre gruplayın
+SELECT Country, COUNT(*) AS Adet
+FROM(SELECT TOP 5 * FROM Employees ORDER BY FirstName) AS Personeller
+GROUP BY Country
+
+-- Ürün bedeli 35$'dan az olan ürünlerin kategorilerine göre gruplanması
+SELECT CategoryID, COUNT(*) AS Adet
+FROM Products
+WHERE UnitPrice<=35
+GROUP BY CategoryID
+ORDER BY 2
+
+-- Baş harfi A-K aralığında olan ve stok miktarı 5 ile 50 arasında olan ürünleri kategorilerine göre gruplayınız.
+SELECT CategoryID, COUNT(*) AS Adet
+FROM Products
+WHERE ProductName LIKE '[A-K]%' AND UnitsInStock BETWEEN 5 AND 50
+GROUP BY CategoryID
+
+-- Her bir siparişteki toplam ürün sayısını bulunuz. 
+SELECT OrderID, SUM(Quantity) AS [Toplam Ürün Sayısı]
+FROM [Order Details]
+GROUP BY OrderID
+ORDER BY 2
+
+-- Her bir siparişin tutarına göre listelenmesi
+SELECT OrderID, CAST(SUM((Quantity * UnitPrice)*(1-Discount)) AS decimal(12, 2)) AS DecimalX, SUM((Quantity * UnitPrice)*(1-Discount)) AS Summary, CONCAT(CAST(SUM((Quantity * UnitPrice)*(1-Discount)) AS NVARCHAR(100)), ' AZN') AS Tutar
+FROM [Order Details]
+GROUP BY OrderID
+ORDER BY 2
+
+
+SELECT CONCAT(CAST(SUM(Summary) AS NVARCHAR(100)), ' $') AS [Nusret'ten Yemek Yersen, Gelecek olan fatura]
+FROM(SELECT OrderID, CAST(SUM((Quantity * UnitPrice)*(1-Discount)) AS DECIMAL(12, 2)) AS DecimalX, SUM((Quantity * UnitPrice)*(1-Discount)) AS Summary, CONCAT(CAST(SUM((Quantity * UnitPrice)*(1-Discount)) AS NVARCHAR(100)), ' AZN') AS Tutar
+     FROM [Order Details]
+     GROUP BY OrderID) AS Deneme
+
+
+SELECT OrderID, SUM((Quantity * UnitPrice)*(1-Discount)) AS Tutar
+FROM [Order Details]
+GROUP BY OrderID
+ORDER BY 2
+-- Toplam tutari 2500 ile 3500 arasinda olan siparişlerin gruplanması
+
+SELECT OrderID, SUM((Quantity * UnitPrice)*(1-Discount)) AS Tutar
+FROM [Order Details]
+GROUP BY OrderID
+HAVING SUM((Quantity * UnitPrice)*(1-Discount)) between 2500 and 3500
+ORDER BY 2
+
+
+-- Her bir siparişteki toplam ürün sayisi 200'den az olanlar
+
+SELECT OrderID, SUM(Quantity)  [Toplam Ürün Sayısı] FROM [Order Details]
+GROUP BY OrderID
+HAVING SUM(Quantity) < 200
+ORDER BY 2
+
+
+
+/*
+	1) Inner Join
+	2) Left Outer Join
+	3) Right Outer Join
+	4) Full Join
+	5) Cross Join
+	6) Self Join
+	7) Where Join
+	8) Union
+	9) Union All 
+*/
+
+-- JOIN IŞLEMLERI
+-- 1) Inner Join: Bir tablodaki her bir kaydın diğer tabloda bir karşılığı olan kayıtlar listelenir. Inner Join ifadesini yazarken Inner cümlesini yazmazsak da (sadece Join yazarsak) bu yine Inner Join olarak işleme alınır.
+
+
+
+
+insert into Categories (CategoryName) values
+('Fashion'),
+('Technology'),
+('Health and Fitness'),
+('Food and Cooking'),
+('Travel and Adventure'),
+('Sports and Recreation'),
+('Home and Decor'),
+('Beauty and Skincare'),
+('Art and Design'),
+('Music and Entertainment'),
+('Books and Literature'),
+('Education and Learning'),
+('Automotive'),
+('Finance and Investment'),
+('Business and Entrepreneurship'),
+('Photography'),
+('Gaming'),
+('Outdoor and Nature'),
+('Parenting and Family'),
+('Science and Technology'),
+('Wellness and Self-care'),
+('DIY and Crafts'),
+('Pets and Animals'),
+('Movies and TV Shows'),
+('Gardening and Landscaping'),
+('Mental Health and Wellbeing'),
+('Social Media and Influencers'),
+('Fitness and Exercise'),
+('Fashion Accessories'),
+('Home Improvement'),
+('Cooking Recipes'),
+('Health and Nutrition'),
+('Adventure Travel'),
+('Water Sports'),
+('Sustainable Living'),
+('Makeup and Cosmetics'),
+('Fine Art'),
+('Classical Music'),
+('Fiction Books'),
+('Language Learning'),
+('Luxury Cars'),
+('Personal Finance'),
+('Small Business Tips'),
+('Portrait Photography'),
+('Console Gaming'),
+('Hiking and Trekking'),
+('Pregnancy and Childbirth'),
+('Space and Astronomy'),
+('Meditation and Mindfulness'),
+('Handmade Crafts'),
+('Dog Care and Training'),
+('Film Reviews'),
+('Organic Gardening'),
+('Yoga and Pilates'),
+('Fashion Trends'),
+('Smart Home Technology'),
+('Healthy Recipes'),
+('Adventure Sports'),
+('Green Living'),
+('Skincare Products'),
+('Contemporary Art'),
+('Pop Music'),
+('Non-fiction Books'),
+('Online Learning Platforms'),
+('Electric Cars'),
+('Stock Market Analysis'),
+('Startup Advice'),
+('Landscape Photography'),
+('PC Gaming'),
+('Camping and Survival Skills'),
+('Parenting Advice'),
+('Psychology and Behavior'),
+('Influencer Marketing'),
+('Bodybuilding and Weightlifting'),
+('Sustainable Fashion'),
+('Interior Design Inspiration'),
+('Culinary Arts'),
+('Holistic Health'),
+('Wildlife Photography'),
+('Cat Care and Training'),
+('Movie Recommendations'),
+('Home Gardening'),
+('Dance and Choreography'),
+('Personal Development'),
+('Eco-friendly Living'),
+('Fashion Styling'),
+('Virtual Reality Technology'),
+('Healthy Dessert Recipes'),
+('Extreme Sports'),
+('Green Energy Solutions'),
+('Anti-aging Skincare'),
+('Street Art'),
+('Jazz Music'),
+('Travel Guides'),
+('Sustainable Architecture'),
+('Meditation Retreats'),
+('Vintage Fashion'),
+('Smart Gadgets'),
+('Art History'),
+('Historical Fiction Books')
+
+
+
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 1', 10.99, 50);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 2', 19.99, 100);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 3', 5.99, 75);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 4', 8.49, 30);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 5', 14.99, 20);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 6', 12.99, 90);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 7', 7.99, 60);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 8', 9.99, 10);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 9', 6.99, 25);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 10', 17.99, 15);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 11', 11.99, 80);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 12', 13.49, 40);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 13', 9.99, 70);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 14', 8.99, 55);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 15', 6.49, 95);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 16', 14.99, 85);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 17', 5.99, 120);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 18', 10.49, 25);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 19', 7.99, 35);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 20', 16.99, 65);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 21', 11.99, 75);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 22', 9.49, 50);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 23', 7.99, 30);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 24', 14.99, 80);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 25', 8.99, 100); 
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 26', 12.49, 60);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 27', 6.99, 45);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 28', 9.99, 20);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 29', 11.99, 90);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 30', 13.49, 70);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 31', 7.99, 30);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 32', 15.99, 50);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 33', 9.99, 40);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 34', 6.49, 80);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 35', 11.99, 60);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 36', 8.49, 35);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 37', 13.99, 25);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 38', 6.99, 15);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 39', 12.99, 55);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 40', 9.99, 95);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 41', 5.99, 50);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 42', 10.49, 70);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 43', 8.99, 40);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 44', 6.99, 80);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 45', 14.99, 60);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 46', 11.49, 30);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 47', 7.99, 100);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 48', 13.99, 50);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 49', 9.99, 75);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 50', 12.99, 25);
+INSERT INTO Products (ProductName, UnitPrice, UnitsInStock) VALUES ('Product 51', 5.99, 45);
+
+
+
+select Count(*) from Categories  -- 108
+select Count(*) from Products    -- 128
+
+
+SELECT CategoryID, COUNT(CategoryID) AS Adet
+FROM Products
+WHERE CategoryID IS NOT NULL
+GROUP BY CategoryID
+
+
+SELECT * FROM Products INNER JOIN Categories 
+ON Categories.CategoryID = Products.CategoryID
+
+
+-- Products tablosundan ProductID, ProductName, CategoryID
+-- Categories tablosundan CategoryName, Description
+
+SELECT ProductID, ProductName, Products.CategoryID,CategoryName, [Description] FROM Products INNER JOIN Categories 
+ON Categories.CategoryID = Products.CategoryID
+
+-- NOT: Eğer seçtiğimiz sütunlar her iki tabloda da bulunuyorsa, o sütunu hangi tablodan seçtiğimizi açıkça belirtmemiz gerekir. (Products.CategoryID gibi)
+
+-- Hangi sipariş, hangi çalışan tarafından, hangi müşteriye yapılmış
+-- Employees
+-- Orders
+-- Customers
+
+SELECT E.TitleOfCourtesy, FirstName, E.LastName, C.CompanyName, C.ContactTitle, C.ContactName, O.OrderID AS [Sipariş No], O.OrderDate AS [Sipariş Tarihi]
+FROM Employees E
+     INNER JOIN Orders O ON E.EmployeeID=O.EmployeeID
+     INNER JOIN Customers C ON C.CustomerID=O.CustomerID
+
+-- Sorguyu kısaltmak amacıyla tablo isimlerine de takma isim verilebilir, ancak dikkat edilmesi gereken nokta bir tabloya takma isim verildikten sonra artık her yerde o ismin kullanılması gerektiğidir.
+
+
+
+
+-- Suppliers tablosundan CompanyName, ContactName
+-- Products tablosundan ProductName, UnitPrice
+-- Categories tablosundan CategoryName
+-- CompanyName sütununa göre artan sırada sıralayınız.
+
+
+-- Tüm bilgilerini ekleyin, ünvan adı soyadı 
+-- Her bir çalışan toplam ne kadarlık (PUL) :) satış yapmıştır.
+
+
+
+
+
+
+-- 2.) OUTER JOIN  
+-- 2.1) LEFT OUTER JOIN : Sorguda katılan tablolardan soldakinin tüm kayıtları getirilirken, sağdaki tablodaki sadece ilişkili olan kayıtlar getirilir.
+
+SELECT COUNT(*)
+FROM Categories -- 108
+SELECT COUNT(*)
+FROM Products
+--128
+
+-- Satış yapan personeller
+select C.CategoryName
+     , P.ProductName
+from Categories         C
+    inner join Products P
+        on C.CategoryID = P.CategoryID
+-- sadece ilişkisel kayıtları getirir ( inner join )
+
+-- Tüm Personeller ve satış değerleri
+select C.CategoryName
+     , P.ProductName
+from Categories        C
+    left join Products P
+        on C.CategoryID = P.CategoryID
+
+-- Her bir çalışanı rapor verdiği kişiyle birlikte listeleyelim
+select P.FirstName + ' ' + p.LastName AS [Personel]
+     , M.FirstName + ' ' + M.LastName AS [Yönetici]
+from Employees          P
+    left join Employees M
+        ON P.ReportsTo = M.EmployeeID
+order by 2
+
+
+
+-- 2.2) RIGHT OUTER JOIN: Sorguda katılan tablolardan sağdakinin tüm kayıtları getirilirken, soldaki tablodaki sadece ilişkili olan kayıtlar getirilir.
+
+
+select C.CategoryName
+     , P.ProductName
+from Categories        C
+    right join Products P
+        on C.CategoryID = P.CategoryID
+
+
+
+select M.FirstName + ' ' + M.LastName AS [Personel]
+     , P.FirstName + ' ' + P.LastName AS [Yönetici]
+from Employees          P
+    right join Employees M
+        ON P.EmployeeID = M.ReportsTo
+order by 2
+
+
+
+-- 3.) FULL JOIN: Her iki tablodaki tüm kayıtlar getirilir. Left ve Right Outer Join'in birleşimidir
+
+
+
+select  C.CategoryName, P.ProductName from Categories C  /*inner*/full join Products P 
+ON C.CategoryID = P.CategoryID
+
+-- 4.) CROSS JOIN: Bir tablodaki bir kaydın diğer tablodaki tüm kayıtlarla eşleştirilmesini sağlar.
+
+
+select CategoryName, ProductName from Categories cross join Products
+
+
+
+-- SUB QUERY
+select ProductID
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+     , CategoryName
+	 , C.Description
+     , S.CompanyName
+	 , S.ContactTitle
+	 , S.ContactName
+from Products       P
+    Join Categories C
+        on P.CategoryID = C.CategoryID
+    join Suppliers  S
+        on P.SupplierID = S.SupplierID
+
+SELECT ProductID
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+     , (
+           SELECT CONCAT(CategoryName, ' - ', [Description])
+           FROM Categories C
+           Where C.CategoryID = P.CategoryID
+       )           AS Category
+     , (
+           SELECT CONCAT(S.CompanyName, ' - ',S.ContactTitle, ' - ',  S.ContactName) 
+           FROM Suppliers S WHERE S.SupplierID = P.SupplierID 
+       ) AS Supplier
+--, C.Description
+--, S.CompanyName
+--, S.ContactTitle
+--, S.ContactName
+FROM Products       P
+    --JOIN Categories C
+    --    ON P.CategoryID = C.CategoryID
+    --JOIN Suppliers  S
+    --    ON P.SupplierID = S.SupplierID
+
+
+
+
+
+-- Fiyatı ortalama fiyatın üstünde olan ürünler
+
+SELECT ProductID
+     , ProductName
+     , UnitPrice
+FROM Products
+WHERE UnitPrice >
+(
+    SELECT AVG(UnitPrice) AS Price FROM Products
+)
+ORDER BY 3
+
+
+-- Ürünler tablosudaki satılan ürünlerin listesi
+
+
+SELECT *
+FROM  Products
+WHERE ProductID not in (
+                           SELECT DISTINCT ProductID FROM [Order Details]
+					   )
+
+-- kargo şirketlerinin taşıdıkları sipariş sayıları
+SELECT DISTINCT ShipVia, (SELECT CompanyName FROM Shippers WHERE ShipperID = Orders.ShipVia) AS CompanyName , COUNT(*) AS Adet FROM Orders 
+GROUP BY ShipVia
+
+
+
+SELECT ShipperID
+     , CompanyName
+     , COUNT(*) AS Adet
+FROM Shippers
+    JOIN Orders
+        ON Shippers.ShipperID = Orders.ShipVia
+GROUP BY ShipperID
+       , CompanyName
+
+
+
+-- Sipariş Alan Çalışanları Listeleyiniz
+
+SELECT FirstName, LastName FROM Employees E  
+WHERE Exists (select EmployeeID from Orders O where O.EmployeeID = E.EmployeeID)
+
+insert into Employees (FirstName, LastName) values('Test','Deneme')
+
+select NEWID() as ProductId, ProductName, UnitPrice, UnitsInStock  into Uruns from Products 
+
+select * from Uruns
+
+
+-- Row_Number() -> satırlar için sanal sıra no oluşturur
+
+SELECT ROW_NUMBER() OVER (ORDER BY ProductName) AS [Index]
+     , ProductId
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+FROM Uruns
+
+
+-- Aynı değerlere, sıralı index değerinin verilmesi
+ 
+SELECT ROW_NUMBER() OVER (PARTITION BY ContactTitle ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+SELECT DISTINCT RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+SELECT DENSE_RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+SELECT DISTINCT DENSE_RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+-- RowNumber ile Derived bir tablo oluşturup sayfalama yapma
+
+SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY CustomerID ) AS SatirNo, CompanyName, ContactTitle, ContactName ,City FROM Customers) AS tbl
+WHERE tbl.SatirNo BETWEEN 20 AND 50
+
+
+
+-- Hangi kargo firması, kaç adet kargo taşımıştır
+
+
+-- pivot sorgu
+SELECT ShipVia, COUNT(*) AS [Adet] FROM Orders
+GROUP BY ShipVia
+
+
+SELECT * FROM (SELECT ShipVia, COUNT(*) AS [Adet] FROM Orders
+GROUP BY ShipVia) AS tbl
+PIVOT (
+    SUM(Adet) 
+	FOR ShipVia in ([1], [2], [3]) 
+) AS pvt
+
+-- Ürünleri kategori adına göre gruplayıp sonrasındai pivot sorguya çeviriniz :)
+
+
+
+-- sonra :) bu sorguyu kategori adına göre dinamik yazın , yani yeni bir kategori eklediğimde :) sorgu değişmeyecek :)sorgu dinamik olacak :) dinamik :)
+
+
+
+
+
+
+
+-- 2.) OUTER JOIN  
+-- 2.1) LEFT OUTER JOIN : Sorguda katılan tablolardan soldakinin tüm kayıtları getirilirken, sağdaki tablodaki sadece ilişkili olan kayıtlar getirilir.
+
+SELECT COUNT(*)
+FROM Categories -- 108
+SELECT COUNT(*)
+FROM Products
+--128
+
+-- Satış yapan personeller
+select C.CategoryName
+     , P.ProductName
+from Categories         C
+    inner join Products P
+        on C.CategoryID = P.CategoryID
+-- sadece ilişkisel kayıtları getirir ( inner join )
+
+-- Tüm Personeller ve satış değerleri
+select C.CategoryName
+     , P.ProductName
+from Categories        C
+    left join Products P
+        on C.CategoryID = P.CategoryID
+
+-- Her bir çalışanı rapor verdiği kişiyle birlikte listeleyelim
+select P.FirstName + ' ' + p.LastName AS [Personel]
+     , M.FirstName + ' ' + M.LastName AS [Yönetici]
+from Employees          P
+    left join Employees M
+        ON P.ReportsTo = M.EmployeeID
+order by 2
+
+
+
+-- 2.2) RIGHT OUTER JOIN: Sorguda katılan tablolardan sağdakinin tüm kayıtları getirilirken, soldaki tablodaki sadece ilişkili olan kayıtlar getirilir.
+
+
+select C.CategoryName
+     , P.ProductName
+from Categories        C
+    right join Products P
+        on C.CategoryID = P.CategoryID
+
+
+
+select M.FirstName + ' ' + M.LastName AS [Personel]
+     , P.FirstName + ' ' + P.LastName AS [Yönetici]
+from Employees          P
+    right join Employees M
+        ON P.EmployeeID = M.ReportsTo
+order by 2
+
+
+
+-- 3.) FULL JOIN: Her iki tablodaki tüm kayıtlar getirilir. Left ve Right Outer Join'in birleşimidir
+
+
+
+select  C.CategoryName, P.ProductName from Categories C  /*inner*/full join Products P 
+ON C.CategoryID = P.CategoryID
+
+-- 4.) CROSS JOIN: Bir tablodaki bir kaydın diğer tablodaki tüm kayıtlarla eşleştirilmesini sağlar.
+
+
+select CategoryName, ProductName from Categories cross join Products
+
+
+
+-- SUB QUERY
+select ProductID
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+     , CategoryName
+	 , C.Description
+     , S.CompanyName
+	 , S.ContactTitle
+	 , S.ContactName
+from Products       P
+    Join Categories C
+        on P.CategoryID = C.CategoryID
+    join Suppliers  S
+        on P.SupplierID = S.SupplierID
+
+SELECT ProductID
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+     , (
+           SELECT CONCAT(CategoryName, ' - ', [Description])
+           FROM Categories C
+           Where C.CategoryID = P.CategoryID
+       )           AS Category
+     , (
+           SELECT CONCAT(S.CompanyName, ' - ',S.ContactTitle, ' - ',  S.ContactName) 
+           FROM Suppliers S WHERE S.SupplierID = P.SupplierID 
+       ) AS Supplier
+--, C.Description
+--, S.CompanyName
+--, S.ContactTitle
+--, S.ContactName
+FROM Products       P
+    --JOIN Categories C
+    --    ON P.CategoryID = C.CategoryID
+    --JOIN Suppliers  S
+    --    ON P.SupplierID = S.SupplierID
+
+
+
+
+
+-- Fiyatı ortalama fiyatın üstünde olan ürünler
+
+SELECT ProductID
+     , ProductName
+     , UnitPrice
+FROM Products
+WHERE UnitPrice >
+(
+    SELECT AVG(UnitPrice) AS Price FROM Products
+)
+ORDER BY 3
+
+
+-- Ürünler tablosudaki satılan ürünlerin listesi
+
+
+SELECT *
+FROM  Products
+WHERE ProductID not in (
+                           SELECT DISTINCT ProductID FROM [Order Details]
+					   )
+
+-- kargo şirketlerinin taşıdıkları sipariş sayıları
+SELECT DISTINCT ShipVia, (SELECT CompanyName FROM Shippers WHERE ShipperID = Orders.ShipVia) AS CompanyName , COUNT(*) AS Adet FROM Orders 
+GROUP BY ShipVia
+
+
+
+SELECT ShipperID
+     , CompanyName
+     , COUNT(*) AS Adet
+FROM Shippers
+    JOIN Orders
+        ON Shippers.ShipperID = Orders.ShipVia
+GROUP BY ShipperID
+       , CompanyName
+
+
+
+-- Sipariş Alan Çalışanları Listeleyiniz
+
+SELECT FirstName, LastName FROM Employees E  
+WHERE Exists (select EmployeeID from Orders O where O.EmployeeID = E.EmployeeID)
+
+insert into Employees (FirstName, LastName) values('Test','Deneme')
+
+select NEWID() as ProductId, ProductName, UnitPrice, UnitsInStock  into Uruns from Products 
+
+select * from Uruns
+
+
+-- Row_Number() -> satırlar için sanal sıra no oluşturur
+
+SELECT ROW_NUMBER() OVER (ORDER BY ProductName) AS [Index]
+     , ProductId
+     , ProductName
+     , UnitPrice
+     , UnitsInStock
+FROM Uruns
+
+
+-- Aynı değerlere, sıralı index değerinin verilmesi
+ 
+SELECT ROW_NUMBER() OVER (PARTITION BY ContactTitle ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+SELECT DISTINCT RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+SELECT DENSE_RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+SELECT DISTINCT DENSE_RANK() OVER (ORDER BY ContactTitle) AS [Index],
+      ContactTitle
+FROM Customers
+
+
+-- RowNumber ile Derived bir tablo oluşturup sayfalama yapma
+
+SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY CustomerID ) AS SatirNo, CompanyName, ContactTitle, ContactName ,City FROM Customers) AS tbl
+WHERE tbl.SatirNo BETWEEN 20 AND 50
+
+
+
+-- Hangi kargo firması, kaç adet kargo taşımıştır
+
+
+-- pivot sorgu
+SELECT ShipVia, COUNT(*) AS [Adet] FROM Orders
+GROUP BY ShipVia
+
+
+SELECT * FROM (SELECT ShipVia, COUNT(*) AS [Adet] FROM Orders
+GROUP BY ShipVia) AS tbl
+PIVOT (
+    SUM(Adet) 
+	FOR ShipVia in ([1], [2], [3]) 
+) AS pvt
+
+-- Ürünleri kategori adına göre gruplayıp sonrasındai pivot sorguya çeviriniz :)
+
+
+
+-- sonra :) bu sorguyu kategori adına göre dinamik yazın , yani yeni bir kategori eklediğimde :) sorgu değişmeyecek :)sorgu dinamik olacak :) dinamik :)
+
+
+
+
+
+
+
+
+
+
+
+-- Kullanıcı Tanımlı Fonksiyonlar (User Defined Function - UDF)
+-- Fonksiyonlar değer döndüren yapısal birimlerdir. Parametre alabilirler. Aynı SP'ler gibi önceden derlenmiþlerdir ve bu nedenle daha hızlı çalıþan yapılardır.
+-- Fonksiyonlar geriye tek bir değer veya bir tablo döndürebilirler.
+-- SP'lerden en büyük farkları sorgu içerisinde kullanılabilmeleridir.
+-- View'lerden en büyük farkı parametre alan yapıları sağlayabilmeleridir.
+-- Değer döndüren fonksiyonlara Scalar Function, Tablo döndüren fonksiyonlara da Table Value Function denir.
+
+/*
+	SKALER Fonksiyonlar
+	* Geriye tek bir değer döndürürler. Genellikle matematiksel işlemlerde kullanılırlar.
+	* RETURNS <tip> ile geriye hangi tipte değer döndürüleceği bildirilmelidir.
+	* RETURN ifadesi ile geriye fonksiyonun döndüreceği değer belirtilir.
+	* Fonksiyonu oluşturan kod bloğu BEGIN - END arasında yazılır ve kullanılırken tablonun şeması da belirtilir.
+	
+*/
+
+
+
+SELECT 
+CategoryName, 
+ProductName,
+UnitPrice AS [Birim Fiyat], 
+UnitPrice *  1.18 AS [Kdv Dahil] 
+FROM .Products P JOIN Categories C 
+ON P.CategoryID = C.CategoryID
+
+-- KDV Oranını hesaplayan Function
+
+CREATE FUNCTION code.KdvHesapla(@price MONEY)  --dbo
+RETURNS MONEY  -- function'ın geriye dönüş tipi
+BEGIN  -- {
+	-- bu alan içerisinde kodlamanızı yapabilirsiniz
+
+	DECLARE @result MONEY = @price * 1.18
+	-- RETURN @price * 1.18 -- function sonrası geriye değer dönme işlemi
+	RETURN  @result 
+END    -- }
+   
+SELECT 
+CategoryName, 
+ProductName,
+UnitPrice AS [Birim Fiyat], 
+dbo.KdvHesapla(UnitPrice) AS [Kdv Dahil] 
+FROM .Products P JOIN Categories C 
+ON P.CategoryID = C.CategoryID
+
+SELECT * FROM code.Employees E join dbo.Orders O on E.EmployeeID = O.EmployeeID
+
+-- Kişilerin yaşlarını hesaplayacak bir UDF yazınız.
+
+CREATE FUNCTION DBO.YASHESAPLA(@date DATETIME)
+RETURNS INT
+BEGIN
+	RETURN DATEDIFF(YEAR,@date, GETDATE())
+END
+
+
+SELECT FirstName, LastName, dbo.YasHesapla(BirthDate) AS Age FROM Employees
+
+
+/*
+    Tablo Döndüren Fonksiyonlar
+    * Skaler fonksiyonkar gibi dışarıdan parametre alabilirler.
+    * Begin - End kullanılmaz
+    * Fonksiyon kullanımında şema ismi kullanmaya gerek yok 
+*/
+
+CREATE FUNCTION PersonelBilgisi()
+RETURNS TABLE
+RETURN SELECT * FROM dbo.Employees
+
+
+SELECT * FROM PersonelBilgisi()
+
+-- Çalışanları adının baş harfine göre listeleyen fonksiyonu yazınız.
+
+
+CREATE FUNCTION PersonelGetir(@letter NVARCHAR)
+RETURNS TABLE 
+RETURN SELECT FirstName, LastName FROM Employees WHERE LEFT(FirstName, 1) = @letter
+ 
+CREATE FUNCTION PersonelGetirByLike(@letter NVARCHAR)
+RETURNS TABLE 
+RETURN SELECT FirstName, LastName FROM Employees WHERE FirstName like @letter+'%'
+
+
+SELECT * FROM PersonelGetirByLike('N')
+
+
+-- STORED PROCEDURE (Saklı Yordamlar)
+-- TSQL komutları ile hazırladığımız işlemler bütününün çalıştırılma anında derlenmesi ile size bir sonuç üreten sql server  bileşenidir.
+-- Çalışma anı planlama sağlar ve tekrar tekrar kullanılabilir
+-- Querylerinize otomatik parametrelendirme getirir
+-- Uygulamalar arasında ortak kullanılabilir yapıdadır
+-- Güvenli data modifikasyonu sağlar
+-- Network bandwidth inden tasarruf sağlar(daha az network bandwith kaynak kullanımı)
+-- Job olarak tanımlanabilir ve schedule edilebilir
+-- Database objelerine güvenli erişim sağlar.
+
+CREATE PROCEDURE sp_PersonelListesi
+AS
+BEGIN
+	SELECT TitleOfCourtesy, FirstName, LastName, City FROM dbo.Employees
+	wHERE City IS NOT NULL
+END
+ 
+execute sp_PersonelListesi
+
+-- Tüm kategorilerle bu kategorilere ait ürünleri getiren Stored Procedure
+
+create procedure sp_UrunAndCategories As
+select C.CategoryID, C.CategoryName,C.Description, P.ProductID, P.ProductName, P.UnitPrice,P.UnitsInStock from Categories C join Products P on C.CategoryID= P.CategoryID
+
+
+execute sp_UrunAndCategories
+
+-- Kategorisine göre ürünleri getiren Stored Procedure
+
+alter proc sp_ProductsByCategory
+@categoryId int
+as
+
+select CategoryID, ProductID, ProductName, UnitPrice, UnitsInStock from Products where CategoryID = @categoryId
+
+
+exec sp_ProductsByCategory 2
+
+
+-- Adına ve soyadına göre çalışanları listeleyen SP
+
+
+/*
+
+alter proc sp_get_employees
+ @text nvarchar(100) 
+ as
+select * from Employees where FirstName like  '%'+@text+'%' or '%'+LastName = @text+'%'
+
+select * from Employees where FirstName = @firstName and LastName = @lastName
+
+sp_get_employees 'Nancy', 'Davolio'
+sp_get_employees @lastName = 'Davolio', @firstName = 'Nancy'
+
+execute sp_get_employees 'an'
+
+
+
+
+
+
+
+*/
+
+
+create proc sp_get_employees
+ @firstName nvarchar(100),
+ @lastName nvarchar(100)
+ as
+
+select * from Employees where FirstName like @firstName and LastName like @lastName
+
+sp_get_employees 'Nancy', 'Davolio'
+sp_get_employees @lastName = 'Davolio', @firstName = 'Nancy'
+
+
+-- Customers Tablosunun tamamına ekleme yapan sp yazmanız.
+
+SELECT 
+    CONCAT( c.name  ,',' ),
+    CONCAT('@', c.name , ' ', t.Name,'(', c.max_length,'),' ),
+    CONCAT('@', c.name  ,',' ),
+    c.name 'Column Name',
+    t.Name 'Data type',
+    c.max_length 'Max Length' 
+FROM    
+    sys.columns c
+INNER JOIN 
+    sys.types t ON c.user_type_id = t.user_type_id
+LEFT OUTER JOIN 
+    sys.index_columns ic ON ic.object_id = c.object_id AND ic.column_id = c.column_id
+LEFT OUTER JOIN 
+    sys.indexes i ON ic.object_id = i.object_id AND ic.index_id = i.index_id
+WHERE
+    c.object_id = OBJECT_ID('Products')
+
+
+ALTER PROC MusteriEkle
+    @CustomerID nchar(10)     ,
+    @CompanyName nvarchar(80) ,
+    @ContactName nvarchar(60) = Null,
+    @ContactTitle nvarchar(60)= Null,
+    @Address nvarchar(120)    = Null,
+    @City nvarchar(30)        = Null,
+    @Region nvarchar(30)      = Null,
+    @PostalCode nvarchar(20)  = Null,
+    @Country nvarchar(30)     = Null,
+    @Phone nvarchar(48)       = Null,
+    @Fax nvarchar(48)		  = Null
+AS
+INSERT INTO Customers
+(
+    CustomerID,
+    CompanyName,
+    ContactName,
+    ContactTitle,
+    Address,
+    City,
+    Region,
+    PostalCode,
+    Country,
+    Phone,
+    Fax
+)
+VALUES
+(@CustomerID, @CompanyName, @ContactName, @ContactTitle, @Address, @City, @Region, @PostalCode, @Country, @Phone, @Fax)
+
+
+
+exec MusteriEkle @CustomerID = 'CODMY' , @CompanyName = 'Code Academy'
+
+select * from Customers where CustomerID = 'CODMY'
+
+
+-- Kullanıcının belirttiği kategoriyi eğer kategoriler tablosında yok ise eklesin var ise, o kategorinin açıklamasını güncellesib :) SP yazınız.
+
+
+
+CREATE PROC AddCategory @categoryName NVARCHAR(15), @description NVARCHAR(MAX)
+AS 
+BEGIN
+    IF EXISTS (SELECT * FROM Categories WHERE CategoryName=@categoryName)
+		BEGIN
+			UPDATE Categories
+			SET [Description]=@description
+			WHERE CategoryName=@categoryName
+		END
+    ELSE 
+		BEGIN
+			INSERT INTO Categories(CategoryName, [Description])
+			VALUES(@categoryName, @description)
+		END
+END
+
+
+
+EXEC AddCategory @categoryName = 'Beverages1', @description = 'Eski Açıklama'
+
+
+--Stored Procedure kullanarak Ürün ve Kategori Eklemek (eğer kategori daha önceden eklenmişse yeniden eklemek yerine o kategorinin ID bilgisini kullanalım)
+
+-- prodAdi  @urunAdi = 'Kola', @stokAdet=  10, @fiyat = 20, @kategoriI d = 'Beverages'
+
+-- en son yapılan insert işleminin pk değerini teslim eder.
+
+-- SCOPE_IDENTITY -> var olan (bulunduğunuz) scope (alan ) içerisindeki en son değeri teslim eder
+-- @@IDENTITY     -> limitsiz, server'da eklenmiş son değeri teslim eder
+
+alter procedure InsertProductByCategory
+    @ProductName nvarchar(80)
+  , @CategoryName nvarchar(15)
+  , @UnitPrice money
+  , @UnitsInStock smallint
+as
+begin
+    Declare @cId int
+    if exists (select * from Categories where CategoryName = @CategoryName)
+    begin
+        print ('Kategori Mevcut')
+        select @cId = CategoryId
+        from Categories
+        where CategoryName = @CategoryName
+    --insert into Products(ProductName, UnitPrice, UnitsInStock, CategoryID)
+    --values (@ProductName,@UnitPrice,@UnitsInStock, @cId)
+    --insert into Products(ProductName, UnitPrice, UnitsInStock, CategoryID)
+    --values(@ProductName, @UnitPrice, @UnitsInStock, (select CategoryId from Categories where CategoryName=@CategoryName))
+    end
+    else
+    begin
+        print 'Kategori Yok'
+
+        insert into Categories
+        (
+            CategoryName
+        )
+        values (@CategoryName)
+        set @cId = SCOPE_IDENTITY()
+    end
+
+    --insert into Products(ProductName, UnitPrice, UnitsInStock, CategoryID)
+    --       values(@ProductName, @UnitPrice, @UnitsInStock, (select CategoryId from Categories where CategoryName=@CategoryName))
+    insert into Products
+    (
+        ProductName
+      , UnitPrice
+      , UnitsInStock
+      , CategoryID
+    )
+    values
+    (@ProductName, @UnitPrice, @UnitsInStock, @cId)
+end
+
+
+
+exec InsertProductByCategory 'Kola 1','Beveragesxs',10,20
+delete from Categories where CategoryID not in (select CategoryID from Products where CategoryID is not null)
+select * from Categories
+select * from Products where  CategoryID = 111

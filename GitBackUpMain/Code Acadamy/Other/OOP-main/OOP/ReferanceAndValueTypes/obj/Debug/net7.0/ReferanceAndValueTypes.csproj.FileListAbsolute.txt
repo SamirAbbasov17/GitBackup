@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\bin\Debug\net7.0\ReferanceAndValueTypes.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\bin\Debug\net7.0\ReferanceAndValueTypes.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\bin\Debug\net7.0\ReferanceAndValueTypes.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\bin\Debug\net7.0\ReferanceAndValueTypes.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\bin\Debug\net7.0\ReferanceAndValueTypes.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\refint\ReferanceAndValueTypes.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ReferanceAndValueTypes.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\ReferanceAndValueTypes\obj\Debug\net7.0\ref\ReferanceAndValueTypes.dll

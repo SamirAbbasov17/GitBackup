@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\bin\Debug\net7.0\Polymorphism_4.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\bin\Debug\net7.0\Polymorphism_4.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\bin\Debug\net7.0\Polymorphism_4.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\bin\Debug\net7.0\Polymorphism_4.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\bin\Debug\net7.0\Polymorphism_4.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\refint\Polymorphism_4.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\Polymorphism_4.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Polymorphism_4\obj\Debug\net7.0\ref\Polymorphism_4.dll

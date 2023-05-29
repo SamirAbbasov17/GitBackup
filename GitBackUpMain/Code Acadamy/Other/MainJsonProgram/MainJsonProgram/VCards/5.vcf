@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:4.1
+FullName:Mr Davor Urošević
+Name:Davor
+LastName:Urošević
+Title:Mr
+Gender:male
+Age:48
+BirthDay:9/5/1974 11:27:55 PM
+Phone:038-1852-583
+Email:davor.urosevic@example.com
+Country:Serbia
+City:Kučevo
+Street:Žike Živkovića
+END:VCARD

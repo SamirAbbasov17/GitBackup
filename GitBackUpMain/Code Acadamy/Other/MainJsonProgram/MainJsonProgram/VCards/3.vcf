@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:4.1
+FullName:Ms Hala Hasle
+Name:Hala
+LastName:Hasle
+Title:Ms
+Gender:female
+Age:43
+BirthDay:11/28/1979 12:56:15 PM
+Phone:35124032
+Email:hala.hasle@example.com
+Country:Norway
+City:Skre
+Street:Baglerstredet
+END:VCARD

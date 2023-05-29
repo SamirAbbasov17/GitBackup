@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\bin\Debug\net7.0\ExereciseClassProject1.exe
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\bin\Debug\net7.0\ExereciseClassProject1.deps.json
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\bin\Debug\net7.0\ExereciseClassProject1.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\bin\Debug\net7.0\ExereciseClassProject1.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\bin\Debug\net7.0\ExereciseClassProject1.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\refint\ExereciseClassProject1.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ExereciseClassProject1.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\ExereciseClassProject1\ExereciseClassProject1\obj\Debug\net7.0\ref\ExereciseClassProject1.dll

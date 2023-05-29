@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  code-academy-sql-server-db:
+    container_name: mssql_northwind
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1434:1433"
+    environment:
+      SA_PASSWORD: "247Pro!!"
+      ACCEPT_EULA: "Y"
+  
+    
+  

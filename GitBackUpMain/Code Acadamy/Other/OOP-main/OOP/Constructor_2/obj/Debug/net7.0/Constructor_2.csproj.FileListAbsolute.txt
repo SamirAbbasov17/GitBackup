@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\bin\Debug\net7.0\Constructor_2.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\bin\Debug\net7.0\Constructor_2.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\bin\Debug\net7.0\Constructor_2.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\bin\Debug\net7.0\Constructor_2.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\bin\Debug\net7.0\Constructor_2.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\refint\Constructor_2.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\Constructor_2.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Constructor_2\obj\Debug\net7.0\ref\Constructor_2.dll

@@ -1,0 +1,21 @@
+﻿OOP Kullanarak, yazılı olan class'ları oluşturunuz ve içerilerine default olarak kullanabileceğimiz property değerlerini ekleyiniz, tekrar eden alanlar için inheritance kullanınız ve her sınıfı içerisinde kullanılan metotlar virtual olacak.
+
+// Constr 
+// Public Upda.
+
+Category                      ( Id, Name, Description )
+	Product                   ( Id, Name, Price, Amount, UnitsInStock )
+
+Customer                      ( Id, FirstName, LastName )
+	CustomerMail              ( Id, Title, Mail )
+	CustomerAddres            ( Id, Title, Country, City, Town, Street, Builng, No )
+	CustomerPhone             ( Id, Title, AreaCode, Number )
+
+	Order                     ( Id, CustomerId, OrderDate, DeliveredDate, ShipperId, CustomerAdderessId, Status )
+		OrderDetail           ( Id, OrderId, ProductId, Price, Count, Discount )
+
+	Shipper ( kargo )         ( Id, Name, Phone )
+
+	 
+
+ShipStatus ( Id, Name)  ->  Sipariş Alındı, Siparişiniz Hazırlandı, Siparişiniz Kargoye Verildi, Siparişin Teslimat Noktasında, Siparişiniz Teslimat İçin Yolda, Siparişiniz Teslim Edildi

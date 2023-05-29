@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\bin\Debug\net7.0\Static_5.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\bin\Debug\net7.0\Static_5.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\bin\Debug\net7.0\Static_5.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\bin\Debug\net7.0\Static_5.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\bin\Debug\net7.0\Static_5.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\refint\Static_5.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\Static_5.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Static_5\obj\Debug\net7.0\ref\Static_5.dll

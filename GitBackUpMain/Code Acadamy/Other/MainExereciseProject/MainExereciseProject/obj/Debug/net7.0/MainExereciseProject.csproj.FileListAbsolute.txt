@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\MainExereciseProject.exe
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\MainExereciseProject.deps.json
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\MainExereciseProject.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\MainExereciseProject.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\MainExereciseProject.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\bin\Debug\net7.0\Spectre.Console.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\refint\MainExereciseProject.dll
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.pdb
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\MainExereciseProject.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Code Acadamy\MainExereciseProject\MainExereciseProject\obj\Debug\net7.0\ref\MainExereciseProject.dll

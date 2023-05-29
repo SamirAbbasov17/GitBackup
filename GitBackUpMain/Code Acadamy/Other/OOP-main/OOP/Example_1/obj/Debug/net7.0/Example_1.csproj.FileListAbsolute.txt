@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\bin\Debug\net7.0\Example_1.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\bin\Debug\net7.0\Example_1.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\bin\Debug\net7.0\Example_1.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\bin\Debug\net7.0\Example_1.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\bin\Debug\net7.0\Example_1.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\refint\Example_1.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\Example_1.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Example_1\obj\Debug\net7.0\ref\Example_1.dll

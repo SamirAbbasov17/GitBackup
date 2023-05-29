@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\bin\Debug\net7.0\Inheritance_3.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\bin\Debug\net7.0\Inheritance_3.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\bin\Debug\net7.0\Inheritance_3.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\bin\Debug\net7.0\Inheritance_3.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\bin\Debug\net7.0\Inheritance_3.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\refint\Inheritance_3.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\Inheritance_3.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Inheritance_3\obj\Debug\net7.0\ref\Inheritance_3.dll

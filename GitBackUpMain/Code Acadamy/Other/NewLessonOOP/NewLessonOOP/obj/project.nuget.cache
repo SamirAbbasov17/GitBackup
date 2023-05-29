@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y0r0aVcejTOGHfZEcUzL2rLIhG9RrshC6eAEAuT3J+e18kurs/A//DD1x99eAWLHbazugXoYg505byTLFBef7Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\Code Acadamy\\NewLessonOOP\\NewLessonOOP\\NewLessonOOP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\sqlite\\3.13.0\\sqlite.3.13.0.nupkg.sha512"
+  ],
+  "logs": []
+}

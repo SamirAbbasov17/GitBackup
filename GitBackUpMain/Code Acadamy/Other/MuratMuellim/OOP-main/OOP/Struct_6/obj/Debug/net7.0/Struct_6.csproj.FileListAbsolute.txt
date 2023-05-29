@@ -1,0 +1,15 @@
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\bin\Debug\net7.0\Struct_6.exe
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\bin\Debug\net7.0\Struct_6.deps.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\bin\Debug\net7.0\Struct_6.runtimeconfig.json
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\bin\Debug\net7.0\Struct_6.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\bin\Debug\net7.0\Struct_6.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.csproj.AssemblyReference.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.AssemblyInfoInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.AssemblyInfo.cs
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.csproj.CoreCompileInputs.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\refint\Struct_6.dll
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.pdb
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\Struct_6.genruntimeconfig.cache
+C:\Users\murat\Desktop\RNET102\OOP\OOP\Struct_6\obj\Debug\net7.0\ref\Struct_6.dll
